@@ -1,0 +1,131 @@
+/* Estilos para el cuerpo y la página */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Estilos para el fondo y el contenido centrado */
+.background {
+  background-image: url("../assets/ferxxo.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+}
+
+/* Estilos para el botón de inicio */
+#startButton {
+  padding: 10px 20px;
+  background-color: transparent; /* Fondo transparente */
+  color: white;
+  border: 2px solid #2ecc71; /* Borde verde */
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s; /* Transiciones para el cambio de color de fondo y texto */
+}
+
+/* Efecto de luz en el botón */
+#startButton:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  background: radial-gradient(
+    circle,
+    rgba(46, 204, 113, 0.2) 80%,
+    /* Cambio de color a verde */ transparent 10%
+  );
+  transform: scale(10); /* Latido más grande */
+  animation: lightSign 1s infinite; /* Animación de 2 segundos */
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* Efecto de resplandor al pasar el mouse */
+#startButton:hover {
+  background-color: #2ecc71; /* Cambio de color al pasar el mouse */
+  color: white; /* Cambio de color de texto */
+  box-shadow: 0 0 20px #2ecc71, 0 0 40px #2ecc71, 0 0 60px #2ecc71; /* Efecto de resplandor */
+}
+
+/* Animación de latido */
+@keyframes lightSign {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2); /* Latido más grande en la mitad de la animación */
+    opacity: 0.6; /* Opacidad reducida en la mitad de la animación */
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Estilos para pantallas grandes, como laptops */
+@media screen and (min-width: 768px) {
+  .background {
+    background-size: contain;
+  }
+}
+
+/* Estilos para el botón de inicio durante la presentación de imágenes */
+.slideshowActive {
+  /* Agrega los estilos que deseas aplicar al botón durante la presentación */
+  animation: flashEffect 1s infinite, boomEffect 0.3s infinite alternate,
+    moveEffect 2s infinite alternate;
+  transform-origin: center;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
